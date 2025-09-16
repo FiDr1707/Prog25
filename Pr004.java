@@ -29,5 +29,43 @@ class Pr004 {
 		p = true; 
 		System.out.println(p + "\t" + (q) + "\t" + (p&q) + "\t"+ (p|q) + "\t" + (p^q) + "\t" + (!p));
 
+		//Применение оператора if с операциями сравнения и логическими операциями
+		int a1, a2;
+		
+		boolean b1, b2;
+		System.out.println("");
+		a1 = 10;
+		a2 = 11;
+		if(a1 < a2) System.out.println("a1 < a2");
+		if(a1 <= a2) System.out.println("a1 <= a2");
+		if(a1 != a2) System.out.println("a1 != a2");
+		if(a1 >= a2) System.out.println("Не выполняется");
+		if(a1 == a2) System.out.println("Не выполняется");
+		if(a1 > a2) System.out.println("Не выполняется");
+
+		b1 = true;
+		b2 = false;
+		if(b1 & b2) System.out.println("Не выполняется");
+		if(!(b1 & b2)) System.out.println("!(b1 & b2): true");
+		if(b1 | b2) System.out.println("b1 | b2: true");
+		if(b1 ^ b2) System.out.println("b1 ^ b2: true");
+
+		//Применение укороченных логических операций
+		
+		int n, d;
+		n = 10;
+		d = 2;
+		System.out.println("");
+		if(d != 0 && (n%d) == 0)
+			System.out.println(d + " является делителем " + n);
+
+		d = 0;
+		if(d != 0 && (n%d) == 0)
+                        System.out.println(d + " является делителем " + n);
+
+		//Обычный логический оператор
+		
+		if(d != 0 && (n%d) == 0)
+                        System.out.println(d + " является делителем " + n);
 	}
 }
