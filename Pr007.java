@@ -109,6 +109,25 @@ outerloop:
 			}
 		}
 		System.out.println();
+
+		//Пример использования вложенного цикла для нахождения делителей
+		System.out.println();
+
+		int lol = 0;
+outerloop1:
+		for(i=2; i<=100; i++) {
+			lol = 0;
+			System.out.println("Делители " + i + ": ");
+			for(int j=2; j<i; j++){
+				if ((i%j) == 0){
+					System.out.println(j + " ");
+					lol++;
+				}
+				if (lol == 3) 
+					continue outerloop1;
+			}
+			System.out.println();	
+		}
 		
 	}
 }
