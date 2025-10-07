@@ -83,10 +83,32 @@ stop1:		for(x=0; x<5; x++)
 		for(x=0; x<5; x++)
 stop2:			{
 				for(y=0; y<5; y++) {
-				if(y==2) break stop2;
-				System.out.println("x и y: " + x + " " + y);
+					if(y==2) break stop2;
+					System.out.println("x и y: " + x + " " + y);
+				}
+			}
+		System.out.println();
+
+		//Оператор continue		
+
+		for (i=0; i <= 10; i++) {
+			if ((i%2) != 0)
+				continue;
+			System.out.print(i + " ");
+		}
+		System.out.println();
+
+		//Применение continue с меткой
+outerloop:
+		for(i=0; i<10; i++) {
+			System.out.print("\nВнешний цикл: проход " + i + ", внутренний цикл ");
+			for(int j=1; j<10; j++) {
+				if(j==5)
+					continue outerloop;
+				System.out.print(j);
 			}
 		}
-		System.out.println();		
+		System.out.println();
+		
 	}
 }
