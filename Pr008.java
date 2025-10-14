@@ -7,6 +7,9 @@ class Auto {
 	double range() {
 		return ((double)(V*100))/trata;	
 	}
+	double trataTop(int km){
+		return (double)km*trata/100;
+	}
 }
 class CheckNum {
 	boolean isEven(int x) {
@@ -49,9 +52,13 @@ class Pr008{
 		System.out.println("Объем бака у Mercedes SLC: "+ merc.V);
 		System.out.println("Расход топлива у Mercedes SLC: " + merc.trata + " литров на 100 км пути" + "\nХод на полном баке: " + merc.range() + " км");
 
-/*		range = ((double)100*merc.V)/merc.trata;
+
 		range = merc.range();
-		System.out.println("Ход на полном баке: " + range + " км"); */
+		System.out.println("Ход на полном баке: " + range + " км");
+		
+		int distance = 3350;
+
+		System.out.println("Мерседес потратит " + merc.trataTop(distance) + " литров, чтобы проехать до Москвы");
 
 		//Хранение значений в простых типах переменных
 		//Операции присваивания для объектных переменных означают копирование ссылки на объект, 
