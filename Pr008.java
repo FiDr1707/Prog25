@@ -3,7 +3,19 @@ class Auto {
 	int pass; //Количество пассажиров, сключая водителя
 	int V; //Объем бака в литрах
 	double trata; //Расход топлива в л/100км
-		      //Метод вычисления расстояния хода на полном баке
+	Auto(){
+		pass = 0;
+		V = 0;
+		trata = 0.0;
+	}		
+	Auto(int p, int v, double r) {
+		pass = p; 
+		V = v;
+		trata = r;
+	}		
+
+       	//Метод вычисления расстояния хода на полном баке
+
 	double range() {
 		return ((double)(V*100))/trata;	
 	}
