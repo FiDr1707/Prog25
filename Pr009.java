@@ -13,6 +13,7 @@ class MyClass2 {
 		x = i;
 	}
 }
+
 class Pr009 {
 	public static void main(String args[]) {
 		MyClass t1 = new MyClass();
@@ -32,5 +33,87 @@ class Pr009 {
 
 		
 		System.out.println("Mercedes SLC перевозит " + merc.pass + " пассажиров на " + merc.range() + " км");
+
+		System.out.println();
+
+//Раюота с массивами
+
+		int sample[];
+		sample = new int[10];
+
+		int sample2[] = new int[20];
+		int i;
+
+		for(i = 0; i < 10; i++)
+			sample [i] = i;
+		for(i = 0; i < 10; i++)
+			System.out.println("Элемент [" + i + "]: " + sample[i]);
+
+		System.out.println();
+
+//Определение максимального и минимального значения в массиве
+		sample2[0] = 39;
+		sample2[1] = -19;
+		sample2[2] = 33;
+		sample2[3] = 45;
+		sample2[4] = 129;
+		sample2[5] = 39;
+		sample2[6] = -339;
+		sample2[7] = 39;
+		sample2[8] = 139;
+		sample2[9] = 39;
+
+		System.out.println();
+
+		int min, max;
+		min = max = sample2[0];
+		for (i = 1; i < 10; i++) {
+			if(sample2[i] < min) min = sample2[i];
+			if(sample2[i] > max) max = sample2[i];
+		}
+
+		System.out.println("Минимальное значение: " + min + "\nМаксимальное значение: " + max);
+
+		System.out.println();
+		for(i = 0; i < 20; i++)
+			System.out.println("Элемент [" + i + "]: " + sample2[i]);
+
+		System.out.println();
+		int sample3[] = {1,-51,-24,-66,88,12,35,11,16,2,-212};
+			
+		for(i = 0; i <= 10; i++)
+			System.out.println("Элемент [" + i + "]: " + sample3[i]);
+
+		System.out.println();
+		//Пузырьковая сортировка массива
+		int a, b, t;
+		int size;
+		size = 10;
+
+		System.out.println();
+		for (a = 1; a < size; a++)
+			for (b = size-1; b >= a; b--) {
+				if (sample3[b-1] > sample3[b]) {
+					t = sample3[b-1];
+					sample3[b-1] = sample3[b];
+					sample3[b] = t;
+				}
+			}
+		
+		for(i=0; i < size; i++)
+			System.out.print(" " + sample3[i]);
+		System.out.println();
+
+		//Двумерные массивы
+
+		int table[][] = new int[4][3];
+
+		for(t = 0; t < 4; t++) {
+			for(i = 0; i < 3; i++){
+				table[t][i] = (t*3) + i + 1;
+				System.out.print("\t" + table[t][i] + " ");
+			}
+			System.out.println();
+		}
 	}
 }
