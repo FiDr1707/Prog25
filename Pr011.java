@@ -98,5 +98,37 @@ class Pr011 {
 			val1 = val1 >> 1;
 		}
 		System.out.println();
+
+		//Оператор ? - используется вместо конструкции if()... else...
+
+		int value = 2, absValue;
+		if (value < 0)
+			absValue = -value;
+		else 
+			absValue = value;
+
+		System.out.println("Значение value: " + value + "\nАбсолютное значение value: " + absValue);
+		value = -2;
+
+		absValue = value < 0 ? -value : value;
+		System.out.println("Значение value: " + value + "\nАбсолютное значение value: " + absValue);
+		
+		//Пример использования оператора ? для предотвращения запрещенных арифметических операций.
+
+		//Запрещенная арифметическая операция: value = 10/0
+
+		System.out.println();
+		int result;
+		for (int i = -5; i < 6; i++) {
+			result = i != 0 ? 100/i : 0;
+		if (i !=0)
+			System.out.println("100/ " + i + "= " + result);
+		}
+		
+		//Аналогичное решение в альтернативной форме
+
+		for (int i = -5; i < 6; i++) 
+			if(i != 0 ? true : false)
+				System.out.println("100/ " + i + "= " + 100 / i);
 	}
 }
