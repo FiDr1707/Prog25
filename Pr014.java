@@ -81,8 +81,11 @@ class VarArgs {
 		for (int i = 0; i < v.length; i++)
 			System.out.println(" аргумент " + i + ": " + v[i]);
 		System.out.println();
-
-
+	//Неоднозначная версия метода vaTest3:
+	
+	//static void vaTest3(int v1, int ... v) {
+	//}
+	//нельзя использовать в качестве перегружаемой версии, если определен метод vaTest3(int...v)
 	}
 }
 class Pr014 {
@@ -103,11 +106,13 @@ class Pr014 {
 		VarArgs.vaTest3(false, true, false);
 		System.out.println();
 
+		//Вызов перегружаемого метода без аргументов приводит к неоднозначности
+
 		int[] x = {3, 3, 5, 1, 60, 40, 14, 9};
 		Outer outOb = new Outer(x);
 
 		outOb.analyze();
-
+		
 		//Демонстрация использования класса ShowBit в качестве внутренего
 
 		class ShowBits {
