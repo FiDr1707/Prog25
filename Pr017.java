@@ -24,13 +24,13 @@ class TwoDShape {
 		line = l;
 
 	}
-	//Конструкор объекта из обьектоа совместимого вида
+	//Конструкор объекта из объектов совместимого вида
 	TwoDShape(TwoDShape ob) {
 		width = ob.width;
 		height = ob.height;
 	}
 
-	//методы доступа к закрытым переменным экземпляра
+	//Методы доступа к закрытым переменным экземпляра
 	double getWidth() {
 		return width;
 	}
@@ -83,7 +83,10 @@ class Triangle extends TwoDShape {
 		super(w, h, c, l);
 		style = s;
 	}
+
+	//Создание треугольника на базе существующего объекта (копия объекта)
 	Triangle(Triangle ob) {
+		//Вызов конструктора суперкласса с передачей объекта "Треугольник"
 		super(ob);
 		style = ob.style;
 	}
@@ -92,7 +95,7 @@ class Triangle extends TwoDShape {
 		return getWidth() * getHeight() / 2;
 	}
 	void showStyle() {
-		System.out.println("Стиль трекгольников: " + style);
+		System.out.println("Стиль треугольников: " + style);
 	}
 
 	void showI() {
@@ -108,7 +111,7 @@ class ExtendsTriangle extends Triangle {
 		tool = tl;
 	}
 	void getTool() {
-		System.out.println("Триугольник нарисован при помощи: " + tool);
+		System.out.println("Треугольник нарисован с помощью: " + tool);
 	}
 }
 //Подкласс TwoDShape для описания прямоугольников
@@ -124,7 +127,7 @@ class Rectangle extends TwoDShape {
 	double area() {
 		return getWidth() * getHeight();
 	}
-	//Подкласс не имеет доступа к закрытым переменным супер класса
+	//Подкласс не имеет доступа к закрытым переменным суперкласса
 	/*
 	String getColor() {
 		System.out.println("Цвет двумерной фигуры: " + color);
@@ -132,8 +135,64 @@ class Rectangle extends TwoDShape {
 	}
 	*/
 }
+class F {
+	int i, j;
+	F(int a, int b) {
+		i = a;
+		j = b;
+	}
+	void show(){
+		System.out.println("Метод show(), запущенный из класса F");
+		System.out.println("i и j " + i + " " + j);
+	}
+}
+class G extends F {
+	int k;
+	G(int a, int b, int c) {
+		super(a, b);
+		k = c;
+	}	
+	//Перегрузка метода, определенного в суперклассе
+	void show(String msg) {
+		System.out.println(msg + k);
+	}
+	//Переопределение метода, определенного в суперклассе
+	void show() {
+		//Есть возможность вызвать метод суперкласса при помощи ключевого слова super
+		super.show();
+		//Дополнительные действия, выполняемые переопределенным методом
+		System.out.println("Метод show(), запущенный из класса G");
+		System.out.println("k: " + k);
+	}
+}
+class SuperClass {
+	void who() {
+		System.out.println("Метод who(), вызванный из суперкласса");
+	}
+}
+
+class SubClass1 extends SuperClass { 
+	void who() {
+		System.out.println("Метод who(), вызванный из подкласса 1");
+	}
+}
+class SubClass2 extends SuperClass {
+	void who() {
+		System.out.println("Метод who(), вызванный из подкласса 2");
+	}
+}
+class SubClass3 extends F {
+	int z;
+	SubClass3(int m, int n, int p) {
+		super(m, n);
+		z = p;
+	}
+	void show() {
+		System.out.println("Метод show(), вызванный из подкласса 3");
+	}
+}
 class Pr017 {
-	//Демонстрация создания треугольников и двумерныз фигур
+	//Демонстрация создания треугольников и двумерных фигур
 	public static void main(String[] args) {
 		Triangle t1 = new Triangle("Пунктирный", 5.1, 4.3, "Зеленый", 0.5);
 		Triangle t2 = new Triangle("Сплошной", 7.1, 3.3, "Красный", 0.2);
@@ -153,14 +212,14 @@ class Pr017 {
 		s1.setHeight(6.2);
 		*/
 
-		System.out.println("Информация об обьекте t1: ");
+		System.out.println("Информация об объекте t1: ");
 		t1.showStyle();
 		t1.showDim();
 		System.out.println("Площадь: " + t1.area());
 		System.out.println();
 		String str = t1.getColor();
 
-		System.out.println("Информация об обьекте et1: ");
+		System.out.println("Информация об объекте et1: ");
 		et1.showStyle();
 		et1.showDim();
 		System.out.println("Площадь: " + et1.area());
@@ -168,7 +227,7 @@ class Pr017 {
 		et1.getColor();
 		et1.getTool();
 
-		System.out.println("Информация об обьекте et2: ");
+		System.out.println("Информация об объекте et2: ");
 		et2.showStyle();
 		et2.showDim();
 		System.out.println("Площадь: " + et2.area());
@@ -176,13 +235,13 @@ class Pr017 {
 		et2.getColor();
 		et2.getTool();
 
-		System.out.println("Информация об обьекте t2: ");
+		System.out.println("Информация об объекте t2: ");
 		t2.showStyle();
 		t2.showDim();
 		System.out.println("Площадь: " + t2.area());
 		System.out.println();
 
-		System.out.println("Информация об обьекте t3: ");
+		System.out.println("Информация об объекте t3: ");
 		t3.showStyle();
 		t3.showDim();
 		System.out.println("Площадь: " + t3.area());
@@ -191,20 +250,20 @@ class Pr017 {
 		System.out.println();
 		//Родительский класс не имеет досупа к переменным, определенным в подклассе
 		//s1.style = "Абстрактная фигура";Родительский класс не может инициализировать переменную подкласса
-		System.out.println("Информация об обьекте s1: ");
+		System.out.println("Информация об объекте s1: ");
 		//Родительский класс не имеет доступа к методам своего подкласса
 		//s1.showStyle() метод не пременим к s1;
 		s1.showDim();
-		System.out.println("Информация об обьекте s2:");
+		System.out.println("Информация об объекте s2:");
 		s2.showDim();
 		System.out.println("Цвет фигуры s2: ");
 		s2.getColor();
 
-		System.out.println("Информация об обьекте s3:");
+		System.out.println("Информация об объекте s3:");
 		s3.showDim();
 		System.out.println("Цвет фигуры s3: ");
 		s2.getColor();
-		//System.out.println("Площадь: " + s1.area()); вызов метода подклассе, неприменим к s1
+		//System.out.println("Площадь: " + s1.area()); вызов метода подклассе неприменим к s1
 		System.out.println();
 
 		Rectangle r1 = new Rectangle(35.1, 4.3, "Синий", 0.6);
@@ -223,14 +282,53 @@ class Pr017 {
 		System.out.println("Значение i в экземпляре TwoDShape: " + s1.i);
 		System.out.println("Значение i в экземпляре Triangle: " + t1.i);
 		t1.showI();
-
+		
+		//Создание треугольника t4 на базе треугольника t1
 		Triangle t4 = new Triangle(t1);
 
-		System.out.println("Информация об обьекте t4: ");
+		System.out.println("Информация об объекте t4: ");
 		t4.showStyle();
 		t4.showDim();
 		System.out.println("Площадь: " + t4.area());
 		System.out.println();
+
+		//Демонстрация переопределения методов (override)
+		F f = new F(5, 10);
+		G g = new G(10, 15, 20);
+		f.show();
+		//Вызов переопределенного метода из объекта класса G
+		System.out.println("\nВызов метода show() из подкласса");
+		g.show();
+		//Вызов перегружаемого метода
+		System.out.println("\nПерегружаемый метод класса G");
+		g.show("Вызов метода с параметром типа String");
 		
+		//Демонстрация динамической диспетчеризации методов 
+		SuperClass superOb = new SuperClass();
+		SubClass1 subOb1 = new SubClass1();
+		SubClass2 subOb2 = new SubClass2();
+
+		SubClass3 subOb3 = new SubClass3(20, 30, 40);
+
+		F ex;
+
+		SuperClass supRef;
+
+		//Присваиваем переменной supRef ссылку на объект типа SuperClass
+		supRef = superOb;
+		supRef.who();
+			
+		//Присваиваем переменной supRef ссылку на объект типа SubClass1
+		supRef = subOb1;
+		supRef.who();
+
+		//Присваиваем переменной supRef ссылку на объект типа SubClass2
+		supRef = subOb2;
+		supRef.who();
+
+		//
+		
+		ex = subOb3;
+		ex.show();
 	}
 }
