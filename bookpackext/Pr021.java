@@ -1,14 +1,15 @@
 package bookpackext;
+import bookpack.*;
 
-class Pr020 {
+class Pr021 {
 	public static void main (String[] args) {
-		bookpack.Book[] books= new bookpack.Book[5];
+		Book[] books= new Book[5];
 
-		books[0] = new bookpack.Book("Портрет Дориана Грея", "О. Уайлд", 1890);
-		books[1] = new bookpack.Book("Мартин Иден", "Д. Лондон", 1923);
-		books[2] = new bookpack.Book("Мастер и Маргарит", "М.А. Булгаков", 1981);
-		books[3] = new bookpack.Book("Оно", "С. Кинг", 1986);
-		books[4] = new bookpack.Book("Преступление и наказание", "Ф.М. Достоевский", 1971);
+		books[0] = new Book("Портрет Дориана Грея", "О. Уайлд", 1890);
+		books[1] = new Book("Мартин Иден", "Д. Лондон", 1923);
+		books[2] = new Book("Мастер и Маргарит", "М.А. Булгаков", 1981);
+		books[3] = new Book("Оно", "С. Кинг", 1986);
+		books[4] = new Book("Преступление и наказание", "Ф.М. Достоевский", 1971);
 
 		for (int i = 0; i < books.length; i++)
 			books[i].show();
@@ -32,7 +33,7 @@ class Pr020 {
 
 		System.out.println("Книга под авторством Булгакова");
 		for (int i = 0; i < books1.length; i++)
-			if (books1[i].getAuthor() == "М.А. Булгаков)
+			if (books1[i].getAuthor() == "М.А. Булгаков")
 				System.out.println(books1[i].getTitle());
 	}
 }
